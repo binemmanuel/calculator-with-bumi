@@ -11,6 +11,16 @@ def get_displyed_value():
     display['text'] = eval(display['text'])
 
 
+def clear():
+    display['text'] = ''
+
+def delete():
+    display['text'] = str(display['text'][0: len(display['text']) - 1])
+
+
+
+
+
 gui = tk.Tk()
 
 gui.title("Calculator")
@@ -21,11 +31,25 @@ canvas.pack()
 
 # Frame for our Screen.
 frame = tk.Frame(canvas, bg="#d4d6d5", bd=3)
-frame.place(relx=.01, rely=.06, relwidth=.98, relheight=.2)
+frame.place(relx=.01, rely=.03, relwidth=.98, relheight=.13)
 
 # Cal Screen.
 display = tk.Label(frame, bg="#fff", font=40, anchor="e", justify="right")
 display.place(relwidth=1, relheight=1)
+
+# Frame for Delete
+frame = tk.Frame(canvas, bg='#c5c5c5', bd=3)
+frame.place(relx=.01, rely=.17, relwidth=.98, relheight=.055)
+
+button = tk.Button(frame, text='Del', font=15, bg='#4f4a3c', fg='#cca952', command=delete)
+button.place(relx=0, rely=0, relwidth=1, relheight=1)
+
+# Frame for our Cancel.
+frame = tk.Frame(canvas, bg="#c5c5c5", bd=3)
+frame.place(relx=.01, rely=.23, relwidth=.98, relheight=.06)
+
+button = tk.Button(frame, text='C', font=15, fg="#cca952", bg= '#4f4a3c', command=clear)
+button.place(relx=0, rely=0, relwidth=1, relheight=1)
 
 frame = tk.Frame(canvas, bg="#d4d6d5", bd=3)
 frame.place(relx=.01, rely=.30, relwidth=.98, relheight=.65)
