@@ -2,8 +2,13 @@ import tkinter as tk
 
 
 def change_text(btn):
-    display['text'] = btn
-    print(btn)
+    display['text'] = str(display['text'])
+    display['text'] += str(btn)
+    # print(type(btn))
+
+
+def get_displyed_value():
+    display['text'] = eval(display['text'])
 
 
 gui = tk.Tk()
@@ -19,7 +24,7 @@ frame = tk.Frame(canvas, bg="#d4d6d5", bd=3)
 frame.place(relx=.01, rely=.06, relwidth=.98, relheight=.2)
 
 # Cal Screen.
-display = tk.Label(frame, bg="#fff", text="Hello, World!!!", font=40, anchor="w", justify="right")
+display = tk.Label(frame, bg="#fff", font=40, anchor="e", justify="right")
 display.place(relwidth=1, relheight=1)
 
 frame = tk.Frame(canvas, bg="#d4d6d5", bd=3)
@@ -71,7 +76,7 @@ button.place(relx=0, rely=.75, relwidth=.25, relheight=.25)
 button = tk.Button(frame, text="0", font=40, command=lambda: change_text(0))
 button.place(relx=.25, rely=.75, relwidth=.25, relheight=.25)
 
-button = tk.Button(frame, text="=", font=40, command=lambda: change_text('='))
+button = tk.Button(frame, text="=", font=40, command=lambda: get_displyed_value())
 button.place(relx=.50, rely=.75, relwidth=.25, relheight=.25)
 
 button = tk.Button(frame, text="+", font=40, command=lambda: change_text('+'))
