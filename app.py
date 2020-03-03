@@ -14,11 +14,9 @@ def get_displyed_value():
 def clear():
     display['text'] = ''
 
+
 def delete():
     display['text'] = str(display['text'][0: len(display['text']) - 1])
-
-
-
 
 
 gui = tk.Tk()
